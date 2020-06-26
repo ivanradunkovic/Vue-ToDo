@@ -1,8 +1,9 @@
+/* eslint-disable vue/valid-v-for */
 <template>
   <div>
     <p class="tasks">Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p class="tasks">Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
-    <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos" :todo.sync="todo"></todo>
+    <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos" :is="todo.sync" :key="todo.id"></todo>
   </div>
 </template>
 
