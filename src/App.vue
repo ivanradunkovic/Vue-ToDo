@@ -11,12 +11,16 @@
 </template>
 
 <script>
+import sweetalert from 'sweetalert';
 import TodoList from './components/TodoList';
+import CreateTodo from './components/CreateTodo';
+
 
 export default {
   name: 'app',
   components: {
-  TodoList,
+    TodoList,
+    CreateTodo,
   },
 
 data() {
@@ -40,17 +44,12 @@ data() {
       }],
     };
   },
+  
+methods: {
+    createTodo(newTodo) {
+      this.todos.push(newTodo);
+      sweetalert('Success!', 'To-Do created!', 'success');
+    },
+  },
 };
-
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
